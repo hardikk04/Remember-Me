@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remember Me</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="main bg-zinc-900 w-screen h-screen overflow-hidden relative">
+      <nav class="flex justify-between items-center text-white px-6 py-6">
+        <h1 class="font-medium text-[1.3vw]">Remember Me.</h1>
+        <button
+          class="make-btn bg-emerald-600 px-8 py-2 text-[1vw] rounded-md font-medium"
+        >
+          Make Notes+
+        </button>
+      </nav>
+      <div
+        class="writer hidden w-screen h-full top-[0] bg-zinc-900/90 absolute flex items-center justify-center z-[99]"
+      >
+        <div
+          class="w-[45%] relative flex items-start gap-[.5vw] flex-col bg-[#52525B] px-4 py-2 rounded-md"
+        >
+          <div class="w-full flex justify-between items-center">
+            <h1 class="text-[1.4vw] font-regular text-zinc-200">
+              Make New Remember.
+            </h1>
+            <i
+              class="close ri-close-circle-line text-[1.5vw] text-zinc-200 cursor-pointer"
+            ></i>
+          </div>
+          <input
+            class="input-title w-full bg-zinc-900 rounded-md px-2 py-1.5 text-[1.2vw] text-zinc-300 outline-none"
+            type="text"
+            placeholder="Title."
+          />
+          <textarea
+            placeholder="Data."
+            class="input-data resize-none w-full h-[30vh] bg-zinc-900 rounded-md px-2 py-1.5 text-[1.2vw] text-zinc-300 outline-none"
+          ></textarea>
+          <button
+            class="create-btn bg-emerald-600 px-4 py-1 text-[1vw] rounded-md font-regular text-white"
+          >
+            Make it
+          </button>
+        </div>
+      </div>
+      <div class="w-screen h-[80vh] px-6">
+        <div class="cards flex flex-wrap gap-[1vw]"></div>
+        <div class="empty w-screen h-[100%] flex items-center justify-center">
+          <div
+            class="w-[12vw] h-[12vh] border-dashed border-2 border-zinc-600 rounded-md flex items-center justify-center"
+          >
+            <h1 class="text-zinc-600">no files here</h1>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center mt-6">
+        <button
+          class="delete-btn bg-emerald-600 px-8 py-2 text-[1vw] rounded-md font-medium text-white"
+        >
+          Delete all
+        </button>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"
+      integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
