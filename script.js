@@ -16,8 +16,8 @@ makeBtn.addEventListener("click", () => {
 
 const createBtn = document.querySelector(".create-btn");
 const cards = document.querySelector(".cards");
-const title = document.querySelector(".input-title");
 const data = document.querySelector(".input-data");
+const title = document.querySelector(".input-title");
 let clutter = "";
 
 if (localStorage.getItem("tasks") === null) {
@@ -90,7 +90,8 @@ function printCards() {
   printParsedData.forEach((elem) => {
     clutter += `<div
     class="card p-4 flex max-w-[15vw] h-fit flex-col gap-[.5vw] bg-zinc-700 rounded-md relative"
-    >
+    > 
+    <i class="close-icon ri-close-line absolute top-[-2%] right-[1%] text-[1.2vw] text-white"></i>
     <h1 class="text-[1.2vw] break-words text-zinc-200 font-[500] inline leading-[1.3]">${elem.title}</h1>
     <p class="text-gray-300 break-words tracking-tighter leading-[1.2] inline">
     ${elem.data}
@@ -108,4 +109,33 @@ printCards();
 deleteBtn.addEventListener("click", () => {
   localStorage.removeItem("tasks");
   location.reload();
+});
+
+const allCards = document.querySelectorAll(".card");
+const allCloseIcons = document.querySelectorAll(".close-icon");
+function deleteTasks() {
+  allCloseIcons.forEach((icon, index) => {
+    icon.addEventListener("click", () => {
+      let deleteDataString = localStorage.getItem("tasks");
+      let deleteDataArray = JSON.parse(deleteDataString);
+      deleteDataArray.splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(deleteDataArray));
+      // location.reload();
+      cards.removeChild(allCards[index]);
+    });
+  });
+}
+
+deleteTasks();
+
+allCards.forEach((card, index) => {
+  card.addEventListener("mouseenter", () => {
+    allCloseIcons[index].style.opacity = 1;
+  });
+});
+
+allCards.forEach((card, index) => {
+  card.addEventListener("mouseleave", () => {
+    allCloseIcons[index].style.opacity = 0;
+  });
 });
